@@ -1,0 +1,24 @@
+<div class="app-place-list_container">
+    <div class="app-place-list_navbar">
+        <app-search (emitterRemovedPlace)="removePlace($event)"></app-search>
+    </div>
+    <div class="app-place-list_wrap" *ngIf="plecesWeather"> 
+      <div  class="app-place-list_place" *ngFor="let place of plecesWeather.list" [routerLink]="['/forecast/place', place.id]"> 
+          <div> 
+              <h3>{{place.name}}</h3> 
+              <p>{{date | date : "MMMM dd"}}th</p>
+          </div> 
+              <div> 
+                  <h1>{{ place.main.temp - 273 | number : '1.0-0' }} <span>&#8451;</span></h1> 
+                   <p>{{ place.weather[0].main }}</p> 
+              </div> 
+          <div> 
+              <p>Humidity: {{ place.main.humidity + "%" }}</p> 
+              <p>Wind: {{place.wind.speed + "km/h"}}</p> 
+          </div> 
+      </div> 
+    </div>
+</div>
+
+		
+

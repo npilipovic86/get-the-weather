@@ -1,0 +1,27 @@
+<div class="app-search">
+  <form class="app-search_form">
+    <mat-chip-list #chipList  class="app-search_chipList" >
+      <mat-chip *ngFor="let place of placeToAdd"
+        [removable]="removable" (remove)="remove(place)" class="app-search_chip">
+        {{place.name}}
+        <mat-icon class="app-search_icon" matChipRemove *ngIf="removable">close</mat-icon>
+      </mat-chip>
+      <input 
+        class="app-search_input" 
+        placeholder="Enter place name"
+        matInput
+        #input
+        [matChipInputFor]="chipList"
+        [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+        [matAutocomplete]="auto"
+        [formControl]="placeCtrl"
+        (matChipInputTokenEnd)="add($event)"/>
+    </mat-chip-list>
+    <mat-autocomplete  #auto="matAutocomplete" (optionSelected)="addSelected($event)">
+      <mat-option  *ngFor="let item of filteredItems | async" [value]="item"  >
+          <span>{{item.name}}</span> |
+          <small>Country: {{item.country}}</small>
+      </mat-option>
+    </mat-autocomplete>
+  </form>
+</div>

@@ -1,0 +1,177 @@
+.app-place-list {
+    &_container {
+            padding-top: 2%;
+            display: grid;
+        }
+    &_navbar {       
+            position: absolute;
+            top: 0;
+            left:0;
+            width: 100%;
+            background: dimgrey;
+        }
+       
+    &_wrap {
+        background-color: #EBEFF1; 
+        padding: 2vw 15vw; 
+        display: grid; 
+        grid-gap: 20px;
+        grid-template-columns: 1fr 1fr 1fr;
+        height:90%;
+    }        
+    &_place:hover {
+        -webkit-transform: scale(1.05);
+        -ms-transform: scale(1.05);
+        transform: scale(1.05);
+        transition: 200ms;
+        cursor: pointer;
+    }  
+    &_place {
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 3px 7px 0 rgba(0, 0, 0, 0.19);
+        display: grid; 
+        grid-template-columns: 1fr 110px 1fr; 
+        margin-top: 50px; 
+        background-color: white; 
+        padding: 2vh 1vw; 
+        height: 30%;
+        width: 90%; 
+        
+        // /////////////\
+        -webkit-animation: fadein 200ms;
+        animation: fadein 200ms;
+        // ////////////////////////////////
+        div { 
+            h3 { 
+                font-size: 1.2em; 
+                vertical-align:middle;
+                margin-top: 2px;
+                margin-left: 10px;
+                font-weight:normal;
+                margin-bottom: 0px;
+                text-align: left;
+            } 
+            p { 
+                color: #838B95; 
+                font-size: 0.8em; 
+                color: #838B95; 
+                font-size: 0.8em; 
+                margin-left: 10px;
+                margin-top:0px;
+            } 
+        } 
+     
+        div:nth-child(2) { 
+            text-align: center;
+            h1 { 
+                position: relative; 
+                font-size: 1.8em;
+                font-weight: normal;
+                margin-top:1px;
+                margin-bottom: 0;
+                span { 
+                    position: absolute; 
+                    top: 0; 
+                    right: 20px; 
+                    font-size: 0.8rem; 
+                    vertical-align: text-top;        
+                }
+            }
+            p {
+            margin-left: 0px;
+            }
+        }  
+        div:nth-child(3) { 
+            margin-top: 7px;
+            p {
+                padding-bottom: 0px; 
+                margin-bottom: 0px;
+                margin-left: 30px;
+            }
+        }
+    } 
+  }
+     // /////////////////
+   
+    @keyframes fadein {
+        from { transform: scale(0); }
+        to   { transform: scale(1); }
+    }
+    
+    @-webkit-keyframes fadein {
+        from { transform: scale(0); }
+        to   { transform: scale(1); }
+    }
+    // /////////////////////////////
+@media screen and (max-width: 1679px) {
+    .app-place-list {
+        &_wrap {
+            padding: 4vw 15vw; 
+        }
+    }
+}
+@media screen and (max-width: 1625px) {
+    .app-place-list {
+        &_wrap {
+            padding: 6vw 15vw; 
+        }
+    }
+}
+@media screen and (max-width: 1379px) {
+    .app-place-list {
+        &_wrap {
+            padding: 8vw 7vw;
+            grid-template-columns: 1fr 1fr; 
+        }
+    }
+}
+@media screen and (max-width: 1024px) {
+    .app-place-list {
+        &_wrap {
+            padding: 10vw 7vw; 
+            grid-template-columns: 1fr 1fr;
+          
+        }
+    }
+}
+@media screen and (max-width: 917px) {
+    .app-place-list {
+        &_place {
+        div:nth-child(3) { 
+             margin-top: 0px;
+            }
+        }
+}
+}
+@media screen and (max-width: 841px) {
+    .app-place-list {
+        &_wrap {
+            padding: 17vw 15vw; 
+        }
+       
+    }
+}
+@media screen and (max-width: 768px) {
+    .app-place-list {
+        &_wrap {
+            grid-template-columns: 1fr;
+            padding: 20vw 15vw; 
+        }
+       
+    }
+}
+@media screen and (max-width: 682px) {
+    .app-place-list {
+        &_wrap {
+            padding: 30vw 15vw; 
+        }
+    }
+}
+@media screen and (max-width: 576px) {
+    .app-place-list {   
+        &_place {
+        div:nth-child(3) { 
+            margin-top: 0px;
+            }
+        }
+    }
+}

@@ -1,0 +1,45 @@
+<div class="app-place-weather" >
+  <h1 *ngIf="forecast">Weather forecast for {{forecast.city.name}} for next {{forecastByDay.length}} days</h1>
+  <div class="app-place-weather_list">
+    <div class="app-place-weather_day" *ngFor="let weather of forecastByDay; let i = index">
+      <h3>Day {{i + 1}}</h3>
+      <p>{{weather.dt_txt | date : "MMMM dd"}}</p>
+      <p>{{weather.weather[0].description}}</p>
+      <img src='http://openweathermap.org/img/w/{{weather.weather[0].icon}}.png'> 
+      <p>Temp: {{weather.main.temp - 273 | number : '1.0-0'}}<span>&#8451;</span></p>
+      <small>{{describeTemperature(weather.main.temp)}}</small>
+      <p>Humidity: {{weather.main.humidity}}%</p> 
+      <small>{{describeHumidity(weather.main.humidity)}}</small>
+      <p>Wind: {{weather.wind.speed }}m/s</p>
+      <small>{{describeWindSpeed(weather.wind.speed)}}</small>
+      <small> {{degreeToDirection(weather.wind.deg)}}</small>
+      <p>Pressure: {{weather.main.pressure}}hPa</p>   
+    </div>
+  </div>
+</div>
+<div class="app-place-weather_map-container">
+  <div class="app-place-weather_info" *ngIf="plecesWeather">
+    <h3>Weather now</h3>
+    <p>Cord: [{{plecesWeather.coord.lat}}, {{plecesWeather.coord.lon}}]</p>
+    <p>{{plecesWeather.weather[0].description}}</p>
+    <img src='http://openweathermap.org/img/w/{{plecesWeather.weather[0].icon}}.png'>
+    <p>Temp: {{plecesWeather.main.temp - 273 | number : '1.0-0'}}<span>&#8451;</span></p>
+    <small>{{describeTemperature(plecesWeather.main.temp)}}</small>
+    <p> {{"Humidity:" +plecesWeather.main.humidity + "%"}}</p>
+    <small>{{describeHumidity(plecesWeather.main.humidity)}}</small>
+    <p>Ground pressure: {{plecesWeather.main.pressure}}hPa</p>
+    <p *ngIf="plecesWeather.main.sea_level"> {{"Sea pressure:"+ plecesWeather.main.sea_level +"hPa"}}</p>
+    <p>Wind: {{plecesWeather.wind.speed}} m/s</p>
+    <small>{{describeWindSpeed(plecesWeather.wind.speed)}}</small>
+    <small> {{degreeToDirection(plecesWeather.wind.deg)}}</small>
+    <p>Clouds: {{plecesWeather.clouds.all}}%</p>
+    <p>Sunrise: {{unixTimestamp(plecesWeather.sys.sunrise)}}</p>
+    <p>Sunset: {{unixTimestamp(plecesWeather.sys.sunset)}}</p>
+  </div>
+    <agm-map [latitude]="lat" [longitude]="lng" class="app-place-weather_map">
+      <agm-marker 
+        [latitude]="lat" 
+        [longitude]="lng">
+      </agm-marker>
+    </agm-map>
+</div>

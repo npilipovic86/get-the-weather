@@ -1,0 +1,84 @@
+.app-place-weather {
+        h1 {
+            font-size: 20px;
+            font-weight: 600;
+            text-align: center;
+        }
+    &_list{
+        display: flex;
+        justify-content: space-between;
+    }
+    &_day {
+        margin: 20px;
+        background-color: white;
+        border-radius: 10px;
+        text-align: center;
+        width: 30%;
+        min-height: 170px;
+        padding-bottom: 10px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);   
+        h3 {
+            margin: 10px;
+            font-size: 18px;
+        }
+        p {
+            margin-top: 4px;
+            margin-bottom: 4px;
+            font-size: 15px;
+        }
+    }
+    &_map {
+        height: 500px;
+        float: left;
+        width:80%;
+    }
+    &_map /deep/ .agm-map-container-inner { 
+        width: auto;
+    }
+    &_info {
+        height: 500px;
+        background-color: white;
+        text-align: center;
+        margin: auto;
+        width: 19.99%;
+        p {
+        margin: 7px;
+        font-size: 15px;
+        }
+    }
+    &_map-container {
+        height: 500px;
+        border:black;
+        border-style: double;
+        margin-top: 1%;   
+            div {
+            float: left;
+            clear: none; 
+            }
+    }
+}
+@media screen and (max-width: 678px) {
+    .app-place-weather {
+        &_info {  
+            h3 {              
+            font-size: 3vw;
+            }          
+            p {  
+            font-size:2vw;
+            }
+        }
+    }
+}
+@media screen and (max-width: 585px) {
+    .app-place-weather {
+        &_info { 
+            h3 {
+            font-size: 3vw;
+            }           
+            p {  
+            margin: 2px;
+            font-size:2vw;
+            }
+        }
+    }
+}

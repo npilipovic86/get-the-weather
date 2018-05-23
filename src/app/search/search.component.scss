@@ -1,0 +1,47 @@
+.app-search {
+    position: relative;
+    background: dimgrey;
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+
+    &_input {
+        background-color: #838B95; 
+        border: none;
+        width: auto;
+        color:whitesmoke;
+        margin: 3px 3px 3px 3px;
+        }
+    
+    &_form {
+        border-radius: 3px;
+        display: inline-block; 
+        justify-content: space-between;
+        align-items: center;
+        margin: auto 20% ; 
+        background-color: #838B95; 
+        width: 60%;     
+    }
+    &_icon {
+        font-size: 12px !important;
+
+    }
+    
+    &_chip {
+        border-radius: 3px !important;
+        background: #aaafb7;
+        margin: 5px 5px 5px 5px !important;
+        height: 25px;
+        -webkit-animation: fadein 200ms;
+        animation: fadein 200ms;
+    }
+}
+@keyframes fadein {
+    from { transform: scale(0); }
+    to   { transform: scale(1); }
+}
+
+@-webkit-keyframes fadein {
+    from { transform: scale(0); }
+    to   { transform: scale(1); }
+}
